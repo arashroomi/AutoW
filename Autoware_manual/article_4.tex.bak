@@ -1,0 +1,197 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Arsclassica Article
+% LaTeX Template
+% Version 1.1 (1/8/17)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Lorenzo Pantieri (http://www.lorenzopantieri.net) with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+10pt, % Main document font size
+a4paper, % Paper type, use 'letterpaper' for US Letter paper
+oneside, % One page layout (no page indentation)
+%twoside, % Two page layout (page indentation for binding and different headers)
+%headinclude,footinclude, % Extra spacing for the header and footer
+BCOR5mm, % Binding correction
+]{scrartcl}
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	HEADERS
+%----------------------------------------------------------------------------------------
+
+
+
+
+%----------------------------------------------------------------------------------------
+
+\newpage % Start the article content on the second page, remove this if you have a longer abstract that goes onto the second page
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\section*{Main Autoware packages }
+\subsection*{Localization}
+\begin{itemize}
+
+\item \textbf{ndt\_ localizer }
+
+The position of the vehicle can be located by scan matching based on the NDT (Normal Distribution Transform) algorithm with the 3-D map of PCD (Point Cloud Data) format and LIDAR data. The position error of localization is around 10cm. 
+
+\item \textbf{orb\_ localizer }
+
+This is a localizer node that uses maps generated from built-in mapper. In other words, this package is a SLAM localizer. 
+
+
+\item \textbf{gnss\_ localizer}
+
+Global Navigation Satellite system 
+
+\end{itemize}
+ 
+
+\subsection*{Detection}
+\begin{itemize}
+\item \textbf{road\_ wizard }
+
+\item \textbf{cv\_ tracker }
+
+\item \textbf{laidar\_ tracker }
+
+\end{itemize}
+\subsection*{Mission}
+\begin{itemize}
+\item  	\textbf{freespace\_ planner}
+
+\item \textbf{lane\_ planner }
+
+\item \textbf{way\_ planner}
+\end{itemize}
+
+
+\subsection*{Motion Planning} 
+\begin{itemize}
+ 	\item \textbf{astar\_ planner 	}
+	\item \textbf{dp\_ planner }	
+	\item \textbf{ff\_ waypoint\_ follower }	
+	
+	\item \textbf{lattice\_ planner}
+	
+	Lattice based motion planning 	
+	\item \textbf{op\_ simulator }	
+	\item \textbf{op\_ simulator\_ perception }	
+	\item \textbf{waypoint\_ follower} 
+	\item \textbf{waypoint\_ maker}
+	
+	There are 3 types of csv format of route file handled by waypoint\_ maker:
+	\begin{itemize}
+	\item ver1: It consists of x, y, z and velocity (the first line does not have velocity)
+	
+	Example:
+
+    3699.6206,-99426.6719,85.8506
+    
+    3700.6453,-99426.6562,85.8224,3.1646
+    
+    3701.7373,-99426.6250,85.8017,4.4036
+    
+    3702.7729,-99426.6094,85.7969,4.7972
+    
+    3703.9048,-99426.6094,85.7766,4.7954
+    
+    3704.9192,-99426.5938,85.7504,4.5168
+    
+    3705.9497,-99426.6094,85.7181,3.6313
+    
+    3706.9897,-99426.5859,85.6877,4.0757
+    
+    3708.0266,-99426.4453,85.6608,4.9097
+    
+    ... 
+    
+    \item ver 2: It consists of x, y, z, yaw and velocity (the first line does not have velocity)
+    
+    Example: 
+    
+    3804.5657,-99443.0156,85.6206,3.1251
+    
+3803.5195,-99443.0078,85.6004,3.1258,4.8800
+
+3802.3425,-99442.9766,85.5950,3.1279,7.2200
+
+3801.2092,-99442.9844,85.5920,3.1293,8.8600
+
+3800.1633,-99442.9688,85.5619,3.1308,10.6000
+
+3798.9702,-99442.9609,85.5814,3.1326,10.5200
+
+3796.5706,-99442.9375,85.6056,3.1359,10.2200
+
+3795.3232,-99442.9453,85.6082,3.1357,11.0900
+
+3794.0771,-99442.9375,85.6148,3.1367,11.2300
+
+... 
+    
+    
+ \item  x,y,z,yaw,velocity,change_flag
+ 
+ Example:
+ 
+3742.216,-99411.311,85.728,3.141593,0,0
+
+3741.725,-99411.311,85.728,3.141593,10,0
+
+3740.725,-99411.311,85.733,3.141593,10,0
+
+3739.725,-99411.311,85.723,3.141593,10,0
+
+3738.725,-99411.311,85.719,3.141593,10,0
+
+3737.725,-99411.311,85.695,3.141593,10,0
+
+3736.725,-99411.311,85.667,3.141593,10,0
+
+3735.725,-99411.311,85.654,3.141593,10,0
+
+... 
+	\end{itemize}
+	
+\end{itemize}
+
+
+
+ 
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\refname}{\spacedlowsmallcaps{References}} % For modifying the bibliography heading
+
+\bibliographystyle{unsrt}
+
+\bibliography{sample.bib} % The file containing the bibliography
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
